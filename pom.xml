@@ -52,6 +52,7 @@
         <module>config-cloud</module>
         <module>provider-server</module>
         <module>consume-server</module>
+        <module>consume-feign</module>
     </modules>
     
     <properties>

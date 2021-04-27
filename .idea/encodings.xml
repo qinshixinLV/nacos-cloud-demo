@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/config-cloud/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consume-feign/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/consume-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/provider-server/src/main/java" charset="UTF-8" />
   </component>

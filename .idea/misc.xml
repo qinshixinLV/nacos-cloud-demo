@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/config-cloud/pom.xml" />
         <option value="$PROJECT_DIR$/provider-server/pom.xml" />
         <option value="$PROJECT_DIR$/consume-server/pom.xml" />
+        <option value="$PROJECT_DIR$/consume-feign/pom.xml" />
       </list>
     </option>
   </component>
