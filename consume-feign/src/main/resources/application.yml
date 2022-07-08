@@ -33,6 +33,7 @@ feign:
     enabled: true
 
 
+
 resilience4j:
   circuitbreaker:
     configs:
@@ -52,6 +53,10 @@ resilience4j:
     instances:
       backendA:
         baseConfig: default
+  timelimiter:
+    configs:
+      default:
+        timeoutDuration: 70000 # 默认1s
 
 
 
