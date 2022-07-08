@@ -12,5 +12,23 @@ spring:
 #        不向注册中心注册自己
         register-enabled: false
 
+    loadbalancer:
+      retry:
+        enabled: true
+        retryOnAllOperations: true
+        maxRetriesOnNextServiceInstance: 4
+        backoff:
+          enabled: true       # 重试延迟开启
+          min-backoff: 5000   # 最小延迟时间
+          max-backoff: 20000  # 最大延迟时间
+
+
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 5000 #Feign的连接建立超时时间，默认为10秒
+        read-timeout: 20000   #Feign的请求处理超时时间，默认为60秒
+
 
 

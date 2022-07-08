@@ -10,9 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
     
-    @RequestMapping(value = "/echo/{string}", method = RequestMethod.GET)
+    @RequestMapping(value = "/echo/{string}", method = RequestMethod.POST)
     public String echo(@PathVariable String string) {
         log.info("被请求:{}",string);
+        try {
+            Thread.sleep(60*1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return "Hello Nacos Discovery " + string;
     }
     

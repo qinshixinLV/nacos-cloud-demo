@@ -1,6 +1,7 @@
 package com.example.consumefeign.controller;
 
 import com.example.consumefeign.feign.ProviderClient;
+import com.example.consumefeign.feign.ProviderClient2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,10 +13,17 @@ public class TestController {
     
     @Autowired
     private ProviderClient providerClient;
+
+    @Autowired
+    private ProviderClient2 providerClient2;
     
     @RequestMapping(value = "/echo/{str}", method = RequestMethod.GET)
     public String echo(@PathVariable String str) {
         return providerClient.echo(str);
     }
-    
+
+    @RequestMapping(value = "/echo2/{str}", method = RequestMethod.GET)
+    public String echo2(@PathVariable String str) {
+        return providerClient2.echo(str);
+    }
 }

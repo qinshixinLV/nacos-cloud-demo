@@ -9,3 +9,5 @@ spring:
       serverAddr: 127.0.0.1:8848
       discovery:
         namespace: 7e8c21f2-1384-4b40-809c-aa860e64ac22
+ribbon:
+  ConnectionTimeout: 5000

@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(name = "provide-server",fallbackFactory = ProviderClientFallbackFactory.class)
-public interface ProviderClient {
+@FeignClient(name = "provide-server2",fallbackFactory = ProviderClient2FallbackFactory.class)
+public interface ProviderClient2 {
     
-    @RequestMapping(value = "/echo/{string}", method = RequestMethod.GET)
+    @RequestMapping(value = "/echo/{string}", method = RequestMethod.POST)
     String echo(@PathVariable(value = "string") String string);
     
 }
