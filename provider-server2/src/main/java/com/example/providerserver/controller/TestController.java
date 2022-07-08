@@ -20,5 +20,12 @@ public class TestController {
         }
         return "Hello Nacos Discovery " + string;
     }
+
+    @RequestMapping(value = "/zero/{num}", method = RequestMethod.GET)
+    public String zero(@PathVariable Integer  num){
+        log.info("被请求zero:{}", num);
+        int n = 1/(num -3);
+        return "OK";
+    }
     
 }

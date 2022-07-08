@@ -10,5 +10,7 @@ public interface ProviderClient2 {
     
     @RequestMapping(value = "/echo/{string}", method = RequestMethod.POST)
     String echo(@PathVariable(value = "string") String string);
-    
+
+    @RequestMapping(value = "/zero/{num}", method = RequestMethod.GET)
+    String zero(@PathVariable(value = "num") Integer  num);
 }

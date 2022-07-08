@@ -29,6 +29,30 @@ feign:
       default:
         connect-timeout: 5000 #Feign的连接建立超时时间，默认为10秒
         read-timeout: 20000   #Feign的请求处理超时时间，默认为60秒
+  circuitbreaker:
+    enabled: true
+
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        slidingWindowType: COUNT_BASED # 计数滑动窗口 时间滑动窗口 默认计数
+        failureRateThreshold: 50 # 熔断器打开的失败阈值 默认50%
+        minimumNumberOfCalls: 10 # 计算错误率的最小请求数，不足最小调用次数不会触发任何变化。默认100
+        slidingWindowSize: 100 # 滑动窗⼝的⼤⼩ 默认100
+        slowCallDurationThreshold: 60s #慢调用阀值，请求执行的时间大于该值时会标记为慢调用 默认60s
+        slowCallRateThreshold: 100  #慢调用熔断阀值，当慢调用率达到或高于该值时，进入open状态 默认100%
+        automaticTransitionFromOpenToHalfOpenEnabled: false # 是否自动从打开到半开，不需要触发
+        waitDurationInOpenState: 20000 # 熔断器从打开到半开需要的时间  默认60s
+        permittedNumberOfCallsInHalfOpenState: 3 #进入halfOpen状态时，可以被调用次数，就算这些请求的失败率，低于设置的失败率变为close状态，否则变为open
+        registerHealthIndicator: true # 健康监测
+        recordExceptions: #异常名单
+          - java.lang.Exception
+    instances:
+      backendA:
+        baseConfig: default
+
 
 
 

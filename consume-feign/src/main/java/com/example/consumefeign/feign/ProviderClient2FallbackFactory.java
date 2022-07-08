@@ -15,6 +15,12 @@ public class ProviderClient2FallbackFactory implements FallbackFactory<ProviderC
                 log.error("echo失败:{}",throwable);
                 return null;
             }
+
+            @Override
+            public String zero(Integer num) {
+                log.error("zero失败:{}",throwable);
+                return null;
+            }
         };
     }
 }
