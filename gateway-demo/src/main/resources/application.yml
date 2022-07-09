@@ -21,10 +21,12 @@ spring:
           uri: lb://consume-feign # ????????????
           predicates:
             - Path=/consume-server/** # ?????????????
+          filters:
+            - Consumer
 
-
-logging:
-  level:
-    org.springframework: trace
-    com.example.gatewaydemo: debug
+# ??????
+#logging:
+#  level:
+#    org.springframework: trace
+#    com.example.gatewaydemo: debug
 
