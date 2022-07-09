@@ -1,6 +1,7 @@
 server:
   port: 9095
-
+  servlet:
+    context-path: /consume-server
 spring:
   application:
     name: consume-feign
@@ -9,8 +10,7 @@ spring:
       serverAddr: 127.0.0.1:8848
       discovery:
         namespace: 7e8c21f2-1384-4b40-809c-aa860e64ac22
-#        不向注册中心注册自己
-        register-enabled: false
+        register-enabled: true
 
     loadbalancer:
       retry:
@@ -57,7 +57,9 @@ resilience4j:
     configs:
       default:
         timeoutDuration: 70000 # 默认1s
-
+logging:
+  level:
+    org.springframework: debug
 
 
 
