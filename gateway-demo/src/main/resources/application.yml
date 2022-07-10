@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: gateway-demo
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 1
   cloud:
     nacos:
       serverAddr: 127.0.0.1:8848
@@ -23,10 +27,17 @@ spring:
             - Path=/consume-server/** # ?????????????
           filters:
             - Consumer
+            - name: RequestRateLimiter
+              args:
+                # 用于限流的键的解析器的 Bean 对象的名字
+                key-resolver: '#{@ipKeyResolver}'
+                # 令牌桶每秒填充平均速率
+                redis-rate-limiter.replenishRate: 2
+                # 令牌桶总容量 能容纳的并发流量总数
+                redis-rate-limiter.burstCapacity: 6
 
 # ??????
-#logging:
-#  level:
-#    org.springframework: trace
-#    com.example.gatewaydemo: debug
-
+logging:
+  level:
+    org.springframework: debug
+    com.example.gatewaydemo: debug

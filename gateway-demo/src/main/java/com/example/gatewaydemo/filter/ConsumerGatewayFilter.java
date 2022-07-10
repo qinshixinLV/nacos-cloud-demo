@@ -25,7 +25,7 @@ public class ConsumerGatewayFilter implements GatewayFilter, Ordered {
         String token = exchange.getRequest().getHeaders().getFirst("Authorization");
         log.info("进入consumer过滤器:{},methoid:{},token:{}", url, exchange.getRequest().getMethod(), token);
         if (StringUtils.isNotBlank(token)) {
-            if (!"101".equals(token)) {
+            if (!token.startsWith("101")) {
                 return responseFailRs(exchange, new CommonResult(401, "token失效"));
             }
         } else {
